@@ -1,6 +1,7 @@
 # import tensorflow as tf
 import os
 from tensorflow import keras
+import tensorflow_datasets as tfds
 
 #Create a TF Dataset
 
@@ -20,6 +21,7 @@ valid_ds = keras.preprocessing.image_dataset_from_directory('./Data/cats_and_dog
 train_ds = train_ds.prefetch(buffer_size=32)
 valid_ds = valid_ds.prefetch(buffer_size=32)
 
+tfds.core.benchmark(train_ds)
 data_aug = keras.Sequential([keras.layers.experimental.preprocessing.Rescaling(1. / 255),
                              keras.layers.experimental.preprocessing.RandomFlip("horizontal"),
                              keras.layers.experimental.preprocessing.RandomZoom(0.2)
