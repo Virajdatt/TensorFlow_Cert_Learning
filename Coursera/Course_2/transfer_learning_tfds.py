@@ -34,6 +34,18 @@ val_aug = keras.Sequential([keras.layers.experimental.preprocessing.Rescaling(1.
 aug_train_data = train_ds.map(lambda x, y: (data_aug(x, training=True), y))
 aug_valid_data = valid_ds.map(lambda x, y: (val_aug(x, training=True), y))
 
+X = aug_valid_data.take(1)
+
+#
+# for i in valid_ds.take(1).as_numpy_iterator():
+#     print(i[0][0][0][0])
+#     print(i[0][0][0][0]/255)
+#     break
+#
+# for i in X.take(1).as_numpy_iterator():
+#     print(i[0][0][0][0])
+#     break
+
 # 1. Instantiate the model you want to use
 
 pre_trained_model = keras.applications.InceptionV3(input_shape=(150, 150,3),
