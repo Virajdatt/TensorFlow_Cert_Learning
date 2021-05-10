@@ -114,3 +114,4 @@ plot_series(time_valid, x_valid)
 plot_series(time_valid, results)
 
 keras.metrics.mean_absolute_error(x_valid, results).numpy()
+#2.9331384

@@ -35,11 +35,12 @@ for x,y in dataset:
 # Pieceing everything together
 
 ndataset = tf.data.Dataset.range(10)
+#ndataset = tf.expand_dims(ndataset, axis=-1)
 ndataset = ndataset.window(5, shift=1, drop_remainder=True)
 ndataset = ndataset.flat_map(lambda window: window.batch(5))
 ndataset = ndataset.map(lambda window: (window[:-1], window[-1:]))
 ndataset = ndataset.shuffle(buffer_size=10)
-ndataset = ndataset.batch(2).prefetch(1)
+ndataset = ndataset.batch(3).prefetch(1)
 
 for x, y in ndataset:
     print("x = ", x.numpy())
