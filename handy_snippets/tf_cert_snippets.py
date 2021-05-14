@@ -91,13 +91,16 @@ train_ds = keras.preprocessing.image_dataset_from_directory('./Data/cats_and_dog
                                                             # subset='training',
                                                             seed=42,
                                                             image_size=(150, 150),
-                                                            batch_size=20
+                                                            batch_size=20,
+                                                            shuffle=
                                                             )
 valid_ds = keras.preprocessing.image_dataset_from_directory('./Data/cats_and_dogs_filtered/validation',
                                                             # subset='validation',
                                                             seed=42,
                                                             image_size=(150, 150),
-                                                            batch_size=20
+                                                            batch_size=20,
+                                                            shuffle=
+
                                                             )
 
 train_ds = train_ds.prefetch(buffer_size=32)
@@ -148,3 +151,29 @@ validation_generator = validation_datagen.flow_from_directory(
         batch_size=32,
         # Since we use binary_crossentropy loss, we need binary labels
         class_mode='binary')
+
+# Vizualize the augmentation
+plt.figure(figsize=(10, 10))
+for images, labels in aug_trainds.take(1):
+    for i in range(9):
+        ax = plt.subplot(3, 3, i + 1)
+        plt.imshow(images[i])
+        plt.title(int(labels[i]))
+        #plt.axis("off")
+
+
+
+for images, _ in trainds.take(1):
+    for i in range(9):
+        augmented_images = aug_train(images)
+        ax = plt.subplot(3, 3, i + 1)
+        plt.imshow(augmented_images[0])
+        plt.axis("off")
+
+
+def cnn_maxpool(cnn_units=32,):
+  return [keras.layers.Convolution2D(cnn_units, (2,2), activation='relu'),
+  keras.layers.MaxPool2D(),
+  keras.layers.BatchNormalization()]
+
+*cnn_maxpool(32),
