@@ -40,6 +40,7 @@ valids = keras.preprocessing.image_dataset_from_directory('Data/horses-humans/te
 data_aug = keras.Sequential([keras.layers.experimental.preprocessing.Rescaling(1. / 255),
                              keras.layers.experimental.preprocessing.RandomFlip("horizontal"),
                              keras.layers.experimental.preprocessing.RandomZoom(0.2),
+                             keras.layers.experimental.preprocessing.Rando
                              #keras.layers.experimental.preprocessing.RandomRotation(20)
 
                              ])
