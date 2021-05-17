@@ -3,3 +3,4 @@ venv/*
 .idea/*
 Data/*
 Weights/*
+Models/*
