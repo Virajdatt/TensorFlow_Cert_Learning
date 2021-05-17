@@ -102,3 +102,6 @@ model.compile(loss='sparse_categorical_crossentropy',
 history = model.fit(train_aug,
           validation_data=valids,
           epochs=10)
+
+kaggle_model = keras.models.load_model('./Models/flowers.h5')
+kaggle_model.evaluate(testset)

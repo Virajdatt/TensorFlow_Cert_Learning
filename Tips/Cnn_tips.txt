@@ -1,0 +1,26 @@
+1. Convolution:-
+              a. For the bulk of the processing, use stacks of 3x3s
+              b. Use 1x1s for squeezing and expanding feature maps to reduce the computational cost
+
+2. Pooling:-
+        a. As a default option, use max pooling throughout the network, global average pooling at the
+        very end before the dense layer + softmax
+        b. You can play around with other configurations / styles, though the gains are probably quite small in most cases.
+
+3. Network Depth and Structure:-
+        a. MobileNet-v2 / Depthwise Separable convolutions and low resolution for speed
+        b. SENet / Squeeze-Excitation or NASNet and high resolution for accuracy
+        c. A regular ResNet / Residual Blocks for a balance
+
+4. Data Preprocessing and Augmentation:-
+        a. Preprocess only when needed, based on your task and using proven research as a guide
+        b.Augmentation almost always increases accuracy, just make sure you use it in reflection with the
+        data you realistically expect to see in your application
+
+5. Regularisation:-
+        a. Use dropout by default for practicality and ease of use
+        b. If dropout fails, explore some of the others which can be customised like L1 / L2
+        c. If all techniques fail, you may have a mismatch between your training and testing data
+
+6. Training:-
+
