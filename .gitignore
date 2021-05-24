@@ -4,3 +4,4 @@ venv/*
 Data/*
 Weights/*
 Models/*
+do_again/*
