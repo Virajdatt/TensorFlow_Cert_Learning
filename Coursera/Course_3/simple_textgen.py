@@ -79,7 +79,7 @@ for _ in range(next_words):
     test_pad = keras.preprocessing.sequence.pad_sequences([seq],
                                                           maxlen=max_sequence_len-1,
                                                           padding='pre')
-    predicted = model.predict_classes(test_pad,verbose=0)
+    predicted = np.argmax(model.predict(test_pad, verbose=0), axis=-1)
     output_word = ""
     for word, index in tokenizer.word_index.items():
         if index == int(predicted):
