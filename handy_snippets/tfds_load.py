@@ -18,11 +18,9 @@ train, test = data['train'], data['test']
 # 3. TFDS train, val1, val2, test
 
 
-data, metadata = tfds.load('mnist',
-                           split=['train[:80%]', 'train[80%:90%]', 'train[90%:]', 'test'],
-                           as_supervised=True,
-                           with_info=True
-                           )
+# 3. Load the data as train, validation , test
+(data, metadata) = tfds.load('mnist',split=['train[:90%]', 'train[90%:]', 'test'],as_supervised=True,with_info=True)
 
-# tf.data.experimental.cardinality(data[0])
-# tf.data.experimental.cardinality(data[1])
+train_data = data[0]
+valid_data = data[1]
+test_data = data[2]
