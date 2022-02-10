@@ -1,4 +1,4 @@
-# This repo contains my pracitce/work for learning TensorFlow 2.x with focus to pass the TensorFlow Developer Certification Exam.
+# This repo contains my pracitce/work for learning TensorFlow 2.x with focus to pass the TensorFlow Developer Certification Exam. It can be used for prepration for the course. The code is written for tensorflow 2.5.x
 
 ![TensorFlow](https://1.bp.blogspot.com/-gbwBTpsa2GA/XmmgEwFv5wI/AAAAAAAAC1U/k9UlGISLDjc_HwHtPfDcw1-W46M2LFt9wCLcBGAsYHQ/s1600/tf_badge_cert_tf_certified_developer.png)
 
